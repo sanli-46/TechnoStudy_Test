@@ -1,2 +1,64 @@
-package TestCase;public class TC_04 {
+package TestCase;
+
+import Utility.BaseDriver;
+import Utility.Func;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class TC_04 extends BaseDriver {
+
+    @Test(priority = 4)
+    public void US_TC04(){
+
+        driver.get("https://techno.study/tr");
+
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        //Scroll...
+        js.executeScript("window.scrollTo(0,7000);");
+        Func.Bekle(1);
+
+        WebElement sDet=driver.findElement(By.linkText("SDET Yazılım Test Mühendisi"));
+        sDet.click();
+        Func.Bekle(1);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("sdet"));
+        Func.Bekle(1);
+
+        driver.navigate().back();
+        Func.Bekle(1);
+
+        WebElement androidApp=driver.findElement(By.linkText("Android Uygulama Geliştirme"));
+        androidApp.click();
+        Func.Bekle(1);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("androidapp"));
+        Func.Bekle(1);
+
+        driver.navigate().back();
+        Func.Bekle(1);
+
+        WebElement dataScience=driver.findElement(By.linkText("Veri bilimi"));
+        dataScience.click();
+        Func.Bekle(1);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("data"));
+        Func.Bekle(1);
+
+        driver.navigate().back();
+        Func.Bekle(1);
+
+        WebElement masterProgram=driver.findElement(By.linkText("Master's Program"));
+        masterProgram.click();
+        Func.Bekle(1);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("masters"));
+        Func.Bekle(1);
+
+        driver.navigate().back();
+        Func.Bekle(1);
+
+    }
 }
