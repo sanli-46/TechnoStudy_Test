@@ -25,3 +25,4 @@ TestNG : 6.14.3
 **Enes Buke ** - GitHub: (https://github.com/enesbuke)
 **Fatih Guvenc ** - GitHub: (https://github.com/fatih122133)
 **Murat Enginel ** - GitHub: (https://github.com/teknokolik)
+**Yigithan Duzgun ** - GitHub: (https://github.com/yigithanyd)
