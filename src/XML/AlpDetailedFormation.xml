@@ -6,8 +6,8 @@
 
         <classes>
 
-            <class name="TestTStudyDeneme.DetailedInformation"> </class>
-            <class name="TestTStudyDeneme.AccessToPage"> </class>
+            <class name="TestCase.TC_07"> </class>
+            <class name="TestCase.TC_08"> </class>
 
         </classes>
     </test>
@@ -18,7 +18,7 @@
 
         <classes>
 
-            <class name="TestTStudyDeneme.DetailedInformation"> </class>
+            <class name="TestCase.TC_07"> </class>
 
         </classes>
 
@@ -29,7 +29,7 @@
 
         <classes>
 
-            <class name="TestTStudyDeneme.DetailedInformation"> </class>
+            <class name="TestCase.TC_07"> </class>
 
         </classes>
     </test>
@@ -40,7 +40,7 @@
 
         <classes>
 
-            <class name="TestTStudyDeneme.DetailedInformation"> </class>
+            <class name="TestCase.TC_07"> </class>
 
         </classes>
     </test>
@@ -49,7 +49,7 @@
         <parameter name="msg" value="Master's Program"> </parameter>
         <classes>
 
-            <class name="TestTStudyDeneme.DetailedInformation"> </class>
+            <class name="TestCase.TC_07"> </class>
 
         </classes>
     </test>
