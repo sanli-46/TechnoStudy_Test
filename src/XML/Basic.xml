@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AllTestCasesSuite">
+    <test name="AllTests">
+        <classes>
+            <class name="TestCase.AllTestCase"/>
+            <class name="TestCase.TC_01"/>
+            <class name="TestCase.TC_02"/>
+            <class name="TestCase.TC_03"/>
+            <class name="TestCase.TC_04"/>
+            <class name="TestCase.TC_05"/>
+            <class name="TestCase.TC_06"/>
+            <class name="TestCase.TC_07"/>
+            <class name="TestCase.TC_08"/>
+        </classes>
+    </test>
+</suite>
+
+        <!--"classes" öncesine "groups" diye açıp "run" diyip "include name"= çalışacak @Test group ismi yazılır. -->
+       
