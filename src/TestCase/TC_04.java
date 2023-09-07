@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class TC_04 extends BaseDriver {
 
-    @Test(groups = {"First"})
+    @Test
     public void US_TC04(){
 
         driver.get("https://techno.study/tr");

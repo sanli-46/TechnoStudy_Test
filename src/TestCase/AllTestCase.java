@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.asserts.SoftAssert;
 
 public class AllTestCase extends BaseDriver {
-
+    SoftAssert softAssert = new SoftAssert();
     @Test
     public void Test1() {
             Actions actionDriv=new Actions(driver);
@@ -235,17 +235,18 @@ public class AllTestCase extends BaseDriver {
                 String pencereURL = driver.getCurrentUrl();
 
                 org.junit.Assert.assertFalse("Giriş sayfası görülmedi",pencereURL.isEmpty());
-            }
-        }
 
+            }
+
+        }
+        driver.switchTo().window(anaPencereHandle);
     }
+
 
     @Test
 
     public void Test6() {
 
-        driver.get("https://techno.study/tr");
-        SoftAssert softAssert = new SoftAssert();
         By[] clickableElements = {
                 By.linkText("SDET Yazılım Test Mühendisi"),
                 By.xpath("//div[text()='Android uygulama geliştirme']"),
@@ -299,9 +300,8 @@ public class AllTestCase extends BaseDriver {
         softAssert.assertAll();
     }
 
-
     private void checkAndClickLogo() {
-        SoftAssert softAssert = new SoftAssert();
+
         By logoSelector = By.cssSelector("img[alt='TechnoStudy']");
 
         WebElement logo = driver.findElement(logoSelector);
