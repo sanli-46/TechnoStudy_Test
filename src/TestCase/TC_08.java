@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC_08 extends BaseDriver {
-    @Test
+    @Test(groups = {"First"})
     public void Test2(){
         driver.get("https://techno.study/tr");
         try{

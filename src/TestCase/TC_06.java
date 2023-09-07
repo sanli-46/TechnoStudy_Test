@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class TC_06 extends BaseDriver {
-    @Test
+    @Test(groups = {"First"})
     public void verifyTechnoStudyLogo() {
         SoftAssert softAssert = new SoftAssert();
 
