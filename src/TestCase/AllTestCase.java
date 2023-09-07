@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -17,11 +18,90 @@ public class AllTestCase extends BaseDriver {
 
     @Test
     public void Test1() {
+            Actions actionDriv=new Actions(driver);
 
-    }
+            driver.get("https://techno.study/tr");
+            WebElement coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            Action act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement sdet= driver.findElement(By.xpath("//div[@field='li_title__1607692272826']"));
+            sdet.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("sdet"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement androidApp= driver.findElement(By.xpath("//div[@field='li_title__1607692276801']"));
+            androidApp.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("androidapp"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement dataScience= driver.findElement(By.xpath("//div[@field='li_title__1607692281884']"));
+            dataScience.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("data"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement jobCenter= driver.findElement(By.xpath("//div[@field='li_title__1663426353172']"));
+            jobCenter.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("jobcenter"));
+            Func.Wait(1);
+
+            driver.navigate().back();
+            Func.Wait(1);
+
+            WebElement mastersProgram= driver.findElement(By.xpath("//div[@field='li_title__1691254947140']"));
+            mastersProgram.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("masters"));
+            Func.Wait(1);
+
+            WebElement backHomePage=driver.findElement(By.xpath("(//div[@class='t228__right_langs_lang'])[2]/a"));
+            backHomePage.click();
+            Func.Wait(1);
+
+        }
+
 
     @Test
     public void Test2() {
+
+            driver.get("https://techno.study/tr");
+            Func.Wait(2);
+
+            WebElement login = driver.findElement(By.xpath("//td[text()='Campus Login']"));
+            org.junit.Assert.assertTrue("Login buton görünmedi", login.isEnabled());
+
+            Func.Wait(2);
+            login.click();
+
+            Func.Wait(2);
+
+            WebElement campusLoginPage = driver.findElement(By.xpath("//div[@class='logo']"));
+            org.junit.Assert.assertTrue("Campus giriş sayfası görülemedi", campusLoginPage.isEnabled());
 
     }
 
@@ -125,9 +205,40 @@ public class AllTestCase extends BaseDriver {
     @Test
     public void Test5() {
 
+        driver.get("https://techno.study/tr");
+
+        String anaPencereHandle = driver.getWindowHandle();
+
+        WebElement socialLinks = driver.findElement(By.xpath("//div[@class='t-sociallinks']"));
+        org.junit.Assert.assertTrue("Sosyal medya hesap logoları görülmedi", socialLinks.isEnabled());
+
+        WebElement facebookLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_facebook']"));
+        org.junit.Assert.assertTrue("facebook simgesi görülmedi", facebookLogo.isEnabled());
+
+        WebElement instagramLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_instagram']"));
+        org.junit.Assert.assertTrue("instagram simgesi görülmedi", instagramLogo.isEnabled());
+
+        WebElement youtubeLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_youtube']"));
+        org.junit.Assert.assertTrue("youtube simgesi görülmedi", youtubeLogo.isEnabled());
+
+        WebElement linkedInLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_linkedin']"));
+        org.junit.Assert.assertTrue("Linkedin simgesi görülmedi", linkedInLogo.isEnabled());
+
+        facebookLogo.click();
+        instagramLogo.click();
+        youtubeLogo.click();
+        linkedInLogo.click();
+
+
+        for (String pencereHandle : driver.getWindowHandles()) {
+            if (!pencereHandle.equals(anaPencereHandle)) {
+                String pencereURL = driver.getCurrentUrl();
+
+                org.junit.Assert.assertFalse("Giriş sayfası görülmedi",pencereURL.isEmpty());
+            }
+        }
+
     }
-
-
 
     @Test
 
@@ -195,11 +306,10 @@ public class AllTestCase extends BaseDriver {
 
         WebElement logo = driver.findElement(logoSelector);
 
-        softAssert.assertTrue(logo.isDisplayed(), "TechnoStudy logosu görüntülenemiyor."); //Bu satır, logo adlı öğenin görüntülenip görüntülenmediğini kontrol ediyor
-
+        softAssert.assertTrue(logo.isDisplayed(), "TechnoStudy logosu görüntülenemiyor.");
         logo.click();
 
-        //Bu satır, şu anki URL'nin "https://techno.study/tr" olup olmadığını kontrol ediyor.
+
         softAssert.assertEquals(driver.getCurrentUrl(), "https://techno.study/tr", "Logo'ya tıklanınca ana sayfaya yönlendirilmedi.");
 
     }

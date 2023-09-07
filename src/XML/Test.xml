@@ -15,7 +15,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -26,7 +26,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -39,7 +39,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -50,7 +50,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
