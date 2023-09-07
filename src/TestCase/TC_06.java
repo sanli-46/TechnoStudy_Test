@@ -71,18 +71,17 @@ public class TC_06 extends BaseDriver {
         softAssert.assertAll();
     }
 
-
     private void checkAndClickLogo() {
 
         By logoSelector = By.cssSelector("img[alt='TechnoStudy']");
 
         WebElement logo = driver.findElement(logoSelector);
 
-        softAssert.assertTrue(logo.isDisplayed(), "TechnoStudy logosu görüntülenemiyor."); //Bu satır, logo adlı öğenin görüntülenip görüntülenmediğini kontrol ediyor
+        softAssert.assertTrue(logo.isDisplayed(), "TechnoStudy logosu görüntülenemiyor.");
 
         logo.click();
 
-        //Bu satır, şu anki URL'nin "https://techno.study/tr" olup olmadığını kontrol ediyor.
+
         softAssert.assertEquals(driver.getCurrentUrl(), "https://techno.study/tr", "Logo'ya tıklanınca ana sayfaya yönlendirilmedi.");
     }
 }
