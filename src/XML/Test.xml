@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="mySuit">
 
@@ -15,7 +16,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -26,7 +27,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -39,7 +40,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>
@@ -50,7 +51,7 @@
         <classes>
             <class name="TestCase.AllTestCase">
                 <methods>
-                    <include name="TC_07">  </include>
+                    <include name="Test7">  </include>
                 </methods>
             </class>
         </classes>

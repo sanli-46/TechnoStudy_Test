@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TC_07 extends BaseDriver {
-    @Test(groups = {"Second"})
+    @Test
     @Parameters("msg")
     public void Test1(String text) {
         driver.get("https://techno.study/tr");

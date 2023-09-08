@@ -4,7 +4,9 @@ import Utility.BaseDriver;
 import Utility.Func;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -13,14 +15,93 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.asserts.SoftAssert;
 
 public class AllTestCase extends BaseDriver {
-
+    SoftAssert softAssert = new SoftAssert();
     @Test
     public void Test1() {
+            Actions actionDriv=new Actions(driver);
 
-    }
+            driver.get("https://techno.study/tr");
+            WebElement coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            Action act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement sdet= driver.findElement(By.xpath("//div[@field='li_title__1607692272826']"));
+            sdet.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("sdet"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement androidApp= driver.findElement(By.xpath("//div[@field='li_title__1607692276801']"));
+            androidApp.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("androidapp"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement dataScience= driver.findElement(By.xpath("//div[@field='li_title__1607692281884']"));
+            dataScience.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("data"));
+            Func.Wait(1);
+
+            coursesBar=driver.findElement(By.xpath("//a[@class='t-menu__link-item t966__tm-link']"));
+            act1= actionDriv.moveToElement(coursesBar).build();
+            act1.perform();
+            Func.Wait(1);
+
+            WebElement jobCenter= driver.findElement(By.xpath("//div[@field='li_title__1663426353172']"));
+            jobCenter.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("jobcenter"));
+            Func.Wait(1);
+
+            driver.navigate().back();
+            Func.Wait(1);
+
+            WebElement mastersProgram= driver.findElement(By.xpath("//div[@field='li_title__1691254947140']"));
+            mastersProgram.click();
+            Func.Wait(1);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("masters"));
+            Func.Wait(1);
+
+            WebElement backHomePage=driver.findElement(By.xpath("(//div[@class='t228__right_langs_lang'])[2]/a"));
+            backHomePage.click();
+            Func.Wait(1);
+
+        }
+
 
     @Test
     public void Test2() {
+
+            driver.get("https://techno.study/tr");
+            Func.Wait(2);
+
+            WebElement login = driver.findElement(By.xpath("//td[text()='Campus Login']"));
+            org.junit.Assert.assertTrue("Login buton görünmedi", login.isEnabled());
+
+            Func.Wait(2);
+            login.click();
+
+            Func.Wait(2);
+
+            WebElement campusLoginPage = driver.findElement(By.xpath("//div[@class='logo']"));
+            org.junit.Assert.assertTrue("Campus giriş sayfası görülemedi", campusLoginPage.isEnabled());
 
     }
 
@@ -124,32 +205,112 @@ public class AllTestCase extends BaseDriver {
     @Test
     public void Test5() {
 
+        driver.get("https://techno.study/tr");
+
+        String anaPencereHandle = driver.getWindowHandle();
+
+        WebElement socialLinks = driver.findElement(By.xpath("//div[@class='t-sociallinks']"));
+        org.junit.Assert.assertTrue("Sosyal medya hesap logoları görülmedi", socialLinks.isEnabled());
+
+        WebElement facebookLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_facebook']"));
+        org.junit.Assert.assertTrue("facebook simgesi görülmedi", facebookLogo.isEnabled());
+
+        WebElement instagramLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_instagram']"));
+        org.junit.Assert.assertTrue("instagram simgesi görülmedi", instagramLogo.isEnabled());
+
+        WebElement youtubeLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_youtube']"));
+        org.junit.Assert.assertTrue("youtube simgesi görülmedi", youtubeLogo.isEnabled());
+
+        WebElement linkedInLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_linkedin']"));
+        org.junit.Assert.assertTrue("Linkedin simgesi görülmedi", linkedInLogo.isEnabled());
+
+        facebookLogo.click();
+        instagramLogo.click();
+        youtubeLogo.click();
+        linkedInLogo.click();
+
+
+        for (String pencereHandle : driver.getWindowHandles()) {
+            if (!pencereHandle.equals(anaPencereHandle)) {
+                String pencereURL = driver.getCurrentUrl();
+
+                org.junit.Assert.assertFalse("Giriş sayfası görülmedi",pencereURL.isEmpty());
+
+            }
+
+        }
+        driver.switchTo().window(anaPencereHandle);
     }
 
 
     @Test
+
     public void Test6() {
 
-        SoftAssert softAssert = new SoftAssert();
+        By[] clickableElements = {
+                By.linkText("SDET Yazılım Test Mühendisi"),
+                By.xpath("//div[text()='Android uygulama geliştirme']"),
+                By.linkText("Veri bilimi"),
+                By.xpath("//div[text()='Job Center & Arbeitsamt']"),
+                By.linkText("Master's Program"),
+                By.linkText("Kullanım Şartları"),
+                By.linkText("Gizlilik Politikası"),
+                By.linkText("Cookies Politikası"),
 
-        String strHomePage = "https://techno.study/tr";
+        };
 
-        driver.get("https://techno.study/tr");
+        for (By elementLocator : clickableElements) {
+            try {
 
-        WebElement technoStudyLogo = driver.findElement(By.cssSelector("img[alt='TechnoStudy']"));
+                if( !elementLocator.equals(By.linkText("Kullanım Şartları")) &&
+                        !elementLocator.equals(By.linkText("Gizlilik Politikası")) &&
+                        !elementLocator.equals(By.linkText("Cookies Politikası"))) {
 
-        softAssert.assertTrue(technoStudyLogo.isDisplayed(), "Techno Study logosu görünmelidir.");
-        System.out.println("Techno Study logosu gorunuyor");
+                    WebElement menuKurslar = driver.findElement(By.xpath("(//a[text()='Kurslar'])[1]"));
+                    Actions action = new Actions(driver);
+                    action.moveToElement(menuKurslar).perform();
+                    Func.Wait(1);
+                }
 
-        softAssert.assertTrue(technoStudyLogo.isEnabled(), "Techno Study logosu tıklanabilir olmalıdır.");
-        System.out.println("Techno Study logosu tiklanabilir durumda");
-        technoStudyLogo.click();
+                if(elementLocator.equals(By.linkText("Kullanım Şartları")) ||
+                        elementLocator.equals(By.linkText("Gizlilik Politikası")) ||
+                        elementLocator.equals(By.linkText("Cookies Politikası")))
+                {
 
-        softAssert.assertTrue(driver.getCurrentUrl().equals("https://techno.study/tr"), "Ana sayfaya yönlendirilmelidir.");
+                    WebElement elementToScroll = driver.findElement(elementLocator);
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elementToScroll);
+                    Func.Wait(2);
+                }
 
-        Assert.assertEquals("https://techno.study/home", strHomePage, "Oluşanla beklenen aynı değil");
+                WebElement elementToClick = wait.until(ExpectedConditions.elementToBeClickable(elementLocator));
+                elementToClick.click();
+                Func.Wait(2);
+                checkAndClickLogo();
+
+                driver.navigate().to("https://techno.study/tr");
+            } catch (NoSuchElementException e) {
+                if (elementLocator.equals(By.xpath("//div[text()='Job Center & Arbeitsamt']"))) {
+                    driver.navigate().to("https://techno.study/tr");
+                } else {
+                    break;
+                }
+            }
+        }
 
         softAssert.assertAll();
+    }
+
+    private void checkAndClickLogo() {
+
+        By logoSelector = By.cssSelector("img[alt='TechnoStudy']");
+
+        WebElement logo = driver.findElement(logoSelector);
+
+        softAssert.assertTrue(logo.isDisplayed(), "TechnoStudy logosu görüntülenemiyor.");
+        logo.click();
+
+
+        softAssert.assertEquals(driver.getCurrentUrl(), "https://techno.study/tr", "Logo'ya tıklanınca ana sayfaya yönlendirilmedi.");
 
     }
 
