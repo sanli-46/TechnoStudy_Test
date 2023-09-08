@@ -93,7 +93,7 @@ public class AllTestCase extends BaseDriver {
             Func.Wait(2);
 
             WebElement login = driver.findElement(By.xpath("//td[text()='Campus Login']"));
-            org.junit.Assert.assertTrue("Login buton görünmedi", login.isEnabled());
+            Assert.assertTrue( login.isEnabled(),"Login buton görünmedi");
 
             Func.Wait(2);
             login.click();
@@ -101,7 +101,7 @@ public class AllTestCase extends BaseDriver {
             Func.Wait(2);
 
             WebElement campusLoginPage = driver.findElement(By.xpath("//div[@class='logo']"));
-            org.junit.Assert.assertTrue("Campus giriş sayfası görülemedi", campusLoginPage.isEnabled());
+            Assert.assertTrue( campusLoginPage.isEnabled(),"Campus giriş sayfası görülemedi");
 
     }
 
@@ -210,19 +210,19 @@ public class AllTestCase extends BaseDriver {
         String anaPencereHandle = driver.getWindowHandle();
 
         WebElement socialLinks = driver.findElement(By.xpath("//div[@class='t-sociallinks']"));
-        org.junit.Assert.assertTrue("Sosyal medya hesap logoları görülmedi", socialLinks.isEnabled());
+        Assert.assertTrue( socialLinks.isEnabled(),"Sosyal medya hesap logoları görülmedi");
 
         WebElement facebookLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_facebook']"));
-        org.junit.Assert.assertTrue("facebook simgesi görülmedi", facebookLogo.isEnabled());
+        Assert.assertTrue( facebookLogo.isEnabled(),"facebook simgesi görülmedi");
 
         WebElement instagramLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_instagram']"));
-        org.junit.Assert.assertTrue("instagram simgesi görülmedi", instagramLogo.isEnabled());
+        Assert.assertTrue( instagramLogo.isEnabled(),"instagram simgesi görülmedi");
 
         WebElement youtubeLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_youtube']"));
-        org.junit.Assert.assertTrue("youtube simgesi görülmedi", youtubeLogo.isEnabled());
+        Assert.assertTrue( youtubeLogo.isEnabled(),"youtube simgesi görülmedi");
 
         WebElement linkedInLogo = driver.findElement(By.xpath("//*[@class='t-sociallinks__item t-sociallinks__item_linkedin']"));
-        org.junit.Assert.assertTrue("Linkedin simgesi görülmedi", linkedInLogo.isEnabled());
+        Assert.assertTrue( linkedInLogo.isEnabled(),"Linkedin simgesi görülmedi");
 
         facebookLogo.click();
         instagramLogo.click();
@@ -234,7 +234,7 @@ public class AllTestCase extends BaseDriver {
             if (!pencereHandle.equals(anaPencereHandle)) {
                 String pencereURL = driver.getCurrentUrl();
 
-                org.junit.Assert.assertFalse("Giriş sayfası görülmedi",pencereURL.isEmpty());
+                Assert.assertFalse(pencereURL.isEmpty(),"Giriş sayfası görülmedi");
 
             }
 
