@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class TC_03 extends BaseDriver {
-    @Test
+    @Test(groups = {"First"})
     public void US_TC03() {
 
         driver.get("https://techno.study/tr/");

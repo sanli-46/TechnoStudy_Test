@@ -1,6 +1,14 @@
 package TestCase;
-public class TC_08 {
-    @Test
+
+import Utility.BaseDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class TC_08 extends BaseDriver {
+    @Test(groups = {"First"})
     public void Test2(){
         driver.get("https://techno.study/tr");
         try{
